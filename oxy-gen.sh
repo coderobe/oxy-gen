@@ -17,10 +17,11 @@ OXYOPT=($(awk '
 ' <<< "${OXYOUT}" | cut -c2))
 OXYOPTSTRING="$(tr -d ' ' <<< "${OXYOPT[@]}")"
 OXYNAME="$(head -n1 <<< "${OXYOUT}" | awk '{print$1}')"
+OXYVER="$(head -n1 <<< "${OXYOUT}" | awk '{print$2}')"
 
 exec > "${MANDIR}/${OXYNAME}.1"
 
-printf -- '.TH "%s" 1\n' "${OXYNAME}"
+printf -- '.TH "%s" 1 "%s" "version %s"\n' "${OXYNAME}" "$(TZ='UTC' date)" "${OXYVER}"
 
 printf -- '.SH NAME\n'
 printf -- '%s\n' "${OXYNAME}"
@@ -55,7 +56,7 @@ for COMMAND in "${OXYSUB[@]}"; do
 
 	exec > "${MANDIR}/${SUBNAME}.1"
 
-	printf -- '.TH "%s" 1\n' "${SUBNAME}"
+	printf -- '.TH "%s" 1 "%s" "version %s"\n' "${SUBNAME}" "$(TZ='UTC' date)" "${OXYVER}"
 
 	printf -- '.SH NAME\n'
 	printf -- '%s\n' "${SUBNAME}"
