@@ -1,0 +1,62 @@
+.TH "oxy-reverse-server" 1
+.SH NAME
+oxy-reverse-server
+.SH SYNOPSIS
+oxy reverse-server [-hipVv] <destination>
+.SH DESCRIPTION
+Connect out to a listening client. Then, be a server.
+.PP
+--client-config <client config>
+
+.RS
+Path to client.conf [default: ~/.config/oxy/client.conf]
+.RE
+
+--forced-command <forced command>
+
+.RS
+Restrict command execution to the specified command
+.RE
+
+-h, --help
+
+.RS
+Prints help information
+.RE
+
+-i, --identity <identity>
+
+.RS
+Use [identity] as authentication information for connecting to the remote
+.RE
+.RS
+server. [env: OXY_IDENTITY=]
+.RE
+
+-p, --port <port>
+
+.RS
+The port used for TCP [default: 2600]
+.RE
+
+--server-config <server config>
+
+.RS
+Path to server.conf [default: ~/.config/oxy/server.conf]
+.RE
+
+-V, --version
+
+.RS
+Prints version information
+.RE
+
+-v, --verbose
+
+.RS
+Increase debugging output
+.RE
+
+
+.SH AUTHOR
+Jenna Magius <pyrosim@gmail.com>
