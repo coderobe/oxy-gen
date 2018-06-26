@@ -1,4 +1,4 @@
-.TH "oxy-reverse-client" 1
+.TH "oxy-reverse-client" 1 "Tue Jun 26 11:24:25 UTC 2018" "version 2.0.2"
 .SH NAME
 oxy-reverse-client
 .SH SYNOPSIS
@@ -6,56 +6,47 @@ oxy reverse-client [-DYXChimpVv] <bind-address> <command>
 .SH DESCRIPTION
 Bind a port and wait for a server to connect. Then, be a client.
 .PP
--L <local port forward>...
-
+.B -L <local port forward>...
 .RS
 Create a local portforward
 .RE
 
--R <remote port forward>...
-
+.B -R <remote port forward>...
 .RS
 Create a remote portforward
 .RE
 
--D, --socks <socks>...
-
+.B -D, --socks <socks>...
 .RS
 Bind a local port as a SOCKS5 proxy
 .RE
 
--Y, --trusted-x-forwarding
-
+.B -Y, --trusted-x-forwarding
 .RS
 Enable trusted X forwarding
 .RE
 
--X, --x-forwarding
-
+.B -X, --x-forwarding
 .RS
 Enable X forwarding
 .RE
 
---client-config <client config>
-
+.B --client-config <client config>
 .RS
 Path to client.conf [default: ~/.config/oxy/client.conf]
 .RE
 
--C, --compress
-
+.B -C, --compress
 .RS
 Enable ZLIB format compression of all transmitted data
 .RE
 
--h, --help
-
+.B -h, --help
 .RS
 Prints help information
 .RE
 
--i, --identity <identity>
-
+.B -i, --identity <identity>
 .RS
 Use [identity] as authentication information for connecting to the remote
 .RE
@@ -63,8 +54,7 @@ Use [identity] as authentication information for connecting to the remote
 server. [env: OXY_IDENTITY=]
 .RE
 
--m, --metacommand <metacommand>...
-
+.B -m, --metacommand <metacommand>...
 .RS
 A command to run after the connection is established. The same commands from
 .RE
@@ -72,40 +62,33 @@ A command to run after the connection is established. The same commands from
 the F10 prompt.
 .RE
 
--p, --port <port>
-
+.B -p, --port <port>
 .RS
 The port used for TCP [default: 2600]
 .RE
 
---server-config <server config>
-
+.B --server-config <server config>
 .RS
 Path to server.conf [default: ~/.config/oxy/server.conf]
 .RE
 
---user <user>
-
+.B --user <user>
 .RS
 The remote username to log in with. Only applicable for servers using --su
 .RE
 
--mode
-
--V, --version
-
+.B -mode
+.B -V, --version
 .RS
 Prints version information
 .RE
 
--v, --verbose
-
+.B -v, --verbose
 .RS
 Increase debugging output
 .RE
 
---via <via>...
-
+.B --via <via>...
 .RS
 Connect to a different oxy server first, then proxy traffic through the
 .RE
