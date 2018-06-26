@@ -2,8 +2,8 @@
 
 MANDIR="./man"
 mkdir -p "${MANDIR}"
-
-OXYOUT="$(oxy help)"
+OXYCMD="oxy"
+OXYOUT="$("${OXYCMD}" help)"
 OXYAUTHOR="$(head -n2 <<< "${OXYOUT}" | tail -n1)"
 OXYSUB=($(awk '
 	$1=="" {now=0}
@@ -18,7 +18,7 @@ OXYOPT=($(awk '
 OXYOPTSTRING="$(tr -d ' ' <<< "${OXYOPT[@]}")"
 OXYNAME="$(head -n1 <<< "${OXYOUT}" | awk '{print$1}')"
 
-exec > "${MANDIR}/oxy.1"
+exec > "${MANDIR}/${OXYNAME}.1"
 
 printf -- '.TH "%s" 1\n' "${OXYNAME}"
 
@@ -39,7 +39,7 @@ printf -- '.SH AUTHOR\n'
 printf -- '%s\n' "${OXYAUTHOR}"
 
 for COMMAND in "${OXYSUB[@]}"; do
-	SUBOUT="$(oxy help "${COMMAND}")"
+	SUBOUT="$("${OXYCMD}" help "${COMMAND}")"
 	SUBOPT=($(awk '
 		$1=="" {now=0}
 		now && $1 ~ "^-.," {print$1}
