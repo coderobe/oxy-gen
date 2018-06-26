@@ -78,7 +78,7 @@ for COMMAND in "${OXYSUB[@]}"; do
 		sed -re 's/^[[:space:]]*//' |
 		sed -re 's/^([[:space:]]*[[:alpha:]].*)/\n.RS\n\1\n.RE\n/' |
 		sed -re 's/[[:space:]]{2,}(.*)/\n.RS\n\1\n.RE\n/gm' |
-		sed -re 's/^([[:space:]]*-.*)/.B \1\n/' |
+		sed -re 's/^([[:space:]]*-.*)/.B \1/' |
 		sed 'N;/^\n$/d;P;D'
 	printf -- '\n'
 
